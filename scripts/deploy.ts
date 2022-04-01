@@ -20,6 +20,14 @@ async function main() {
   await greeter.deployed();
 
   console.log("Greeter deployed to:", greeter.address);
+
+  const Merchant = await ethers.getContractFactory("Merchant");
+  const merchant = await Merchant.deploy("smft");
+
+  await merchant.deployed();
+  console.log("Merchant deployed to:", merchant.address);
+
+  await merchant.deploy("granat", "20220304");
 }
 
 // We recommend this pattern to be able to use async/await everywhere
